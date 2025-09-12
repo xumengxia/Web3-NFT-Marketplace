@@ -1,0 +1,43 @@
+/* Navbar 容器样式 */
+.navbar-container {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); */
+}
+
+/* Menu 样式 */
+.navbar-menu {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: none;
+    background: transparent;
+    line-height: 64px;
+}
+
+/* Menu 项样式 */
+.navbar-menu .ant-menu-item {
+    height: 64px;
+    line-height: 64px;
+    padding: 0 24px;
+    margin: 0 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+
+
+
+
+@media (max-width: 480px) {
+    .navbar-menu {
+        padding: 0 16px;
+    }
+    
+    .navbar-menu .ant-menu-item {
+        padding: 0 12px;
+        margin: 0 2px;
+        font-size: 13px;
+    }
+}
