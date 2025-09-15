@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.26;
+pragma solidity ^0.8.26;
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -19,7 +19,7 @@ contract NFTMarketplace is Ownable, ERC721URIStorage {
         address payable owner;
         address payable seller;
         uint256 price;
-        bool currentlyListed;
+        bool curentlyListed;
     }
 
     event TokenListedSuccess(
@@ -30,7 +30,7 @@ contract NFTMarketplace is Ownable, ERC721URIStorage {
         bool currentlyListed
     );
 
-    constructor() Ownable(msg.sender) ERC721("NFTMarketplace", "NFTM") {}
+    constructor() Ownable() ERC721("NFTMarketplace", "NFTM") {}
 
     //owner
 
@@ -38,7 +38,8 @@ contract NFTMarketplace is Ownable, ERC721URIStorage {
         listPrice = _listPrice;
     }
 
-    //seller create nft to the marketplace
+    //seller
+
     function createToken(
         string memory tokenURI,
         uint256 price
@@ -78,7 +79,7 @@ contract NFTMarketplace is Ownable, ERC721URIStorage {
     function executeSale(uint256 tokenId) external payable {
         //tokenId is listed
         ListedToken storage token = idToListedToken[tokenId];
-        require(token.currentlyListed, "nft must listed");
+        require(token.curentlyListed, "nft must listed");
         //msg.value=price;
         require(msg.value == token.price, "price not enough");
 

@@ -96,7 +96,12 @@ VITE_PINATA_GATEWAY=your_pinata_gateway_url（如：https://xxx.mypinata.cloud�
 npx hardhat node
 ```
 
-#### 步骤 2：使用remix部署合约
+#### 步骤 2：部署合约
+<!-- pnpm add -D hardhat
+npx hardhat --init
+npx hardhat node
+pnpm add @openzeppelin/contracts@^4.7.3 -->
+npx hardhat run ./scripts/deploy.ts --network localhost
 
 #### 步骤 3：启动前端开发服务
 
