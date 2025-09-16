@@ -1,7 +1,8 @@
 import { useAppKitProvider, useAppKitAccount } from "@reown/appkit/react";
 import { useState, useEffect } from "react";
 import { ethers, BrowserProvider } from "ethers";
-import NFTMarketplace from '../../artifacts/NFTMarketplace_metadata.json';
+import NFTMarketplace from '../../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json';
+import MarketplaceJson from '../../src/Marketplace.json';
 import { createContext, useContext } from "react";
 
 export const contractContext = createContext<{
@@ -28,7 +29,7 @@ export function ContractProvider({ children }: { children: React.ReactNode }) {
                 setError(null);
 
                 // 检查环境变量
-                const contractAddress = import.meta.env.VITE_CONTRACT_USDTADDR;
+                const contractAddress = MarketplaceJson.address;
                 if (!contractAddress) {
                     const errorMsg = '合约地址未配置';
                     setError(errorMsg);
@@ -46,7 +47,7 @@ export function ContractProvider({ children }: { children: React.ReactNode }) {
 
                 const contractInstance = new ethers.Contract(
                     contractAddress,
-                    NFTMarketplace.output.abi,
+                    NFTMarketplace.abi,
                     signer
                 );
 

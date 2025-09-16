@@ -108,7 +108,7 @@ const SellNft: React.FC = () => {
             console.log('contract', contract);
             const price = ethers.parseEther(form.getFieldValue('price').toString());
             console.log('price', price);
-
+            console.log('contract', contract);
             let listingPrice = await contract.getListPrice()
             listingPrice = listingPrice.toString()
             console.log('listingPrice', listingPrice);
@@ -120,7 +120,7 @@ const SellNft: React.FC = () => {
             message.success("Successfully listed your NFT!");
             window.location.replace("/")
         } catch (errorInfo) {
-            console.log('Verification failed:', errorInfo);
+            console.error('Verification failed:', errorInfo);
             message.error('error');
         } finally {
             setLoading(false);

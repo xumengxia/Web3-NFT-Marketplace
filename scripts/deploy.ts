@@ -1,10 +1,7 @@
 import { network } from "hardhat";
 import * as fs from "fs";
 
-const { ethers } = await network.connect({
-  network: "hardhatOp",
-  chainType: "op",
-});
+const { ethers } = await network.connect();
 async function main() {
   // 使用 require 方式导入，避免 ES 模块问题
   const _contract = await ethers.getContractFactory("NFTMarketplace");
@@ -16,7 +13,7 @@ async function main() {
 
   // 4. 获取 ABI
   const contractAbi = _nftmarket.interface;
-  console.log("合约ABI:", contractAbi);
+  // console.log("合约ABI:", contractAbi);
 
   // 5. 组装成JSON格式（类似Marketplace.json）
   const contractData = {

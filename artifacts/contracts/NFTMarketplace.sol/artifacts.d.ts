@@ -15,7 +15,7 @@ export interface NFTMarketplace$Type {
   readonly deployedLinkReferences: {};
   readonly immutableReferences: {};
   readonly inputSourceName: "project/contracts/NFTMarketplace.sol";
-  readonly buildInfoId: "solc-0_8_28-189ff97004be60ba9e2365245af4d84089a6660d";
+  readonly buildInfoId: "solc-0_8_28-11377c98fdbd502a81827ea44870bf5546399291";
 };
 
 import "hardhat/types/artifacts";

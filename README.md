@@ -70,34 +70,20 @@ pnpm install
 yarn install
 ```
 
-### 2. 环境配置
-
-在项目根目录创建 `.env` 文件，填写以下必要配置项（需自行获取对应密钥 / 地址）：
-
-```env
-# Reown AppKit 项目 ID（从 https://reown.com/ 注册获取）
-VITE_PROJECT_ID=your_reown_project_id_here
-
-# 智能合约地址（Hardhat 部署后获取的 NFT 市场合约地址）
-VITE_CONTRACT_MARKETADDR=0xYourNFTMarketContractAddress
-VITE_CONTRACT_USDTADDR=0xYourUSDTContractAddress（如需 USDT 支付）
-
-# Pinata 配置（从 https://www.pinata.cloud/ 控制台获取）
-VITE_PINATA_JWT=your_pinata_jwt_token
-VITE_PINATA_GATEWAY=your_pinata_gateway_url（如：https://xxx.mypinata.cloud）
-```
-
-### 3. 启动开发服务器
-
 #### 步骤 1：启动 Hardhat 本地节点
 
 ```bash
+# node 版本
+nvm install node@22.12
+nvm use 22.12.0      
+
 # 启动本地测试网络（默认生成 20 个测试账户，含 10000 ETH/账户）
 npx hardhat node
 ```
 
 #### 步骤 2：部署合约
-<!-- pnpm add -D hardhat
+<!-- 
+pnpm add -D hardhat
 npx hardhat --init
 npx hardhat node
 pnpm add @openzeppelin/contracts@^4.7.3 -->
@@ -108,8 +94,10 @@ npx hardhat run ./scripts/deploy.ts --network localhost
 ```bash
 npm run dev
 ```
-
 启动成功后，访问终端输出的本地地址（默认：`http://localhost:5173`）即可进入项目。
+
+项目图片资源 .\src\assets\images
+
 
 ### 4. 构建生产版本
 
@@ -118,8 +106,6 @@ npm run dev
 ```bash
 npm run build
 ```
-
-
 
 构建产物会输出到 `dist` 目录，可直接部署到 Nginx、Vercel、Netlify 等平台。
 

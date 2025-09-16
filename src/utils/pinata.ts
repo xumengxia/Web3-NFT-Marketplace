@@ -110,6 +110,16 @@ const createPinataOptions = () => {
 export const GetIpfsUrlFromPinata = (pinataUrl: string) => {
     const IPFSUrl = pinataUrl.split("/");
     const lastIndex = IPFSUrl.length;
-    const _IPFSUrl = "https://ipfs.io/ipfs/" + IPFSUrl[lastIndex - 1];
-    return _IPFSUrl;
+    const hash = IPFSUrl[lastIndex - 1];
+
+    // 使用多个 IPFS 网关作为备选，提高可用性
+    const gateways = [
+        `https://gateway.pinata.cloud/ipfs/${hash}`,  // Pinata 官方网关
+        `https://ipfs.io/ipfs/${hash}`,               // 公共网关
+        `https://cloudflare-ipfs.com/ipfs/${hash}`,   // Cloudflare 网关
+        `https://dweb.link/ipfs/${hash}`,             // Protocol Labs 网关
+    ];
+
+    // 返回第一个网关（Pinata 官方网关通常最稳定）
+    return gateways[0];
 };

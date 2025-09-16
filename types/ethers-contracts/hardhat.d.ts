@@ -10,17 +10,13 @@ import * as Contracts from "./index.js";
 
 declare module "@nomicfoundation/hardhat-ethers/types" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
-  getContractFactory(name: 'Counter', signerOrOptions?: ethers.Signer | FactoryOptions): Promise<Contracts.Counter__factory>
-getContractFactory(name: 'NFTMarketplace', signerOrOptions?: ethers.Signer | FactoryOptions): Promise<Contracts.NFTMarketplace__factory>
+  getContractFactory(name: 'NFTMarketplace', signerOrOptions?: ethers.Signer | FactoryOptions): Promise<Contracts.NFTMarketplace__factory>
 
-  getContractAt(name: 'Counter', address: string | ethers.Addressable, signer?: ethers.Signer): Promise<Contracts.Counter>
-getContractAt(name: 'NFTMarketplace', address: string | ethers.Addressable, signer?: ethers.Signer): Promise<Contracts.NFTMarketplace>
+  getContractAt(name: 'NFTMarketplace', address: string | ethers.Addressable, signer?: ethers.Signer): Promise<Contracts.NFTMarketplace>
 
-  deployContract(name: 'Counter', signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.Counter>
-deployContract(name: 'NFTMarketplace', signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.NFTMarketplace>
+  deployContract(name: 'NFTMarketplace', signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.NFTMarketplace>
 
-  deployContract(name: 'Counter', args: any[], signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.Counter>
-deployContract(name: 'NFTMarketplace', args: any[], signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.NFTMarketplace>
+  deployContract(name: 'NFTMarketplace', args: any[], signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.NFTMarketplace>
 
     // default types
     getContractFactory(
