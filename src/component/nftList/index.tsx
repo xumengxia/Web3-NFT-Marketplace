@@ -17,7 +17,15 @@ export default function NftList({ data }: { data: NFTMetaType[] }) {
                   alt={item.name}
                   style={{ width: "100%", height: "100%" }}
                 />
-                <h2 className="mrg-top20">{item.name}</h2>
+                <div
+                  className="mrg-top20"
+                  style={{ fontSize: "22px", fontWeight: "bold" }}
+                >
+                  {item.name}
+                </div>
+                <div style={{ fontSize: "18px", fontWeight: 600 }}>
+                  Floor price: <span>{item.price}</span> ETH
+                </div>
                 <div>{item.description}</div>
               </Card>
             </Link>
